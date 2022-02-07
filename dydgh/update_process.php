@@ -1,6 +1,6 @@
 <?php
-require "../util/dbconfig_remind2.php";
-
+require "../util/dbconfig_dydgh.php";
+$m_id=$_POST['m_id'];
 $c_id=$_POST['c_id'];
 $c_name=$_POST['c_name'];
 $c_size=$_POST['c_size'];
@@ -15,7 +15,7 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
-header('Location:detailview.php?c_id='.$c_id);
+header("Location:detailview.php?c_id=$c_id&m_id=$m_id");
 
 
 

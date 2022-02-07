@@ -1,6 +1,6 @@
 <?php
 require "../util/utility.php";
-require "../util/dbconfig_remind2.php";
+require "../util/dbconfig_dydgh.php";
 
 
 $upload_path = "./uploadfiles/";

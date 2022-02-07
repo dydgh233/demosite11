@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
-$username = "remind2";
-$password = "remind2";
+$username = "dydgh";
+$password = "dydgh";
 
 
 require_once "../util/utility.php";
@@ -13,11 +13,11 @@ if(!$conn->connect_error) {
     echo "<script>alert('DBMS와 연결을 설정할 수 없습니다. \\n호스트명, 계정, 비밀번호를 확인해주세요.')</script>";
 }
 
-$dbname = "remind2";
-$sql="DROP DATABASE IF EXISTS remind2";
+$dbname = "dydgh";
+$sql="DROP DATABASE IF EXISTS dydgh";
 $conn->query($sql);
 
-$sql="CREATE DATABASE IF NOT EXISTS remind2";
+$sql="CREATE DATABASE IF NOT EXISTS dydgh";
 $conn->query($sql);
 
 

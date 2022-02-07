@@ -1,5 +1,5 @@
 <?php
-require "../util/dbconfig_remind2.php";
+require "../util/dbconfig_dydgh.php";
 
 $m_email = $_POST['m_email'];
 $m_name = $_POST['m_name'];

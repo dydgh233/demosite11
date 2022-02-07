@@ -1,6 +1,6 @@
 <?php
 
-require "../util/dbconfig_remind2.php";
+require "../util/dbconfig_dydgh.php";
 
 $c_id=$_GET['c_id'];
 

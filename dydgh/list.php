@@ -1,5 +1,5 @@
 <?php
-require '../util/dbconfig_remind2.php';
+require '../util/dbconfig_dydgh.php';
 require_once '../util/loginchk.php';
 
 ?>
@@ -13,14 +13,17 @@ require_once '../util/loginchk.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>박용호사이트</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/head_style.css">
+    <link rel="stylesheet" href="../css/style4.css">
 </head>
 
 <body>
@@ -43,13 +46,13 @@ require_once '../util/loginchk.php';
                             <?php
                             if (!$chk_login) {  // 로그인 상태가 아니라면
                             ?>
-                                <a class="nav-link" aria-current="page" id='trglgnModal' display='block' style="width:auto;"><strong>로그인</strong></a>
+                                <a class="nav-link"  id='trglgnModal' display='block' style="width:auto;"><strong>로그인</strong></a>
 
                                 <div id='lgnModal' class='modal'>
 
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
-                                        <form action="../remind2/login_process.php" method="POST" class="loginbox">
+                                        <form action="../dydgh/login_process.php" method="POST" class="loginbox">
                                             <label for="username"><b>ID</b></label><input type="text" name="ID" placeholder="ID를 입력하세요." required />
                                             <label for="passwd"><b>Password </label><input type="password" name="password" placeholder=" password를 입력하세요." required />
                                             <button type=submit>로그인</button><br>
@@ -61,7 +64,7 @@ require_once '../util/loginchk.php';
 
                             <?php
                             } else {
-                                echo $_SESSION['m_id']; ?>
+                                echo $_SESSION['username']; ?>
                                 <button?><a href="./logout.php">logout</a></button>
                                 <?php
                             }
@@ -73,7 +76,7 @@ require_once '../util/loginchk.php';
 
                         <div id="id01" class="modal">
                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            <form class="modal-content" action="/remind2/insert_process.php" method="POST">
+                            <form class="modal-content" action="/dydgh/insert_process.php" method="POST">
                                 <div class="container">
                                     <h1>회원가입</h1>
                                     <p>회원정보를 작성해주세요.</p>
@@ -138,15 +141,15 @@ require_once '../util/loginchk.php';
             <div class="text-center text-white">
                 <div class="slideshow-container">
                     <div class="mySlides1">
-                        <img src="../remind2/uploadfiles/벤츠.jpg" style="width:100%" height="400px">
+                        <img src="../dydgh/uploadfiles/벤츠.jpg" style="width:100%" height="400px">
                     </div>
 
                     <div class="mySlides1">
-                        <img src="../remind2/uploadfiles/아우디.jpg" style="width:100%" height="400px">
+                        <img src="../dydgh/uploadfiles/아우디.jpg" style="width:100%" height="400px">
                     </div>
 
                     <div class="mySlides1">
-                        <img src="../remind2/uploadfiles/세로벤츠.jpg" style="width:100%" height="400px">
+                        <img src="../dydgh/uploadfiles/세로벤츠.jpg" style="width:100%" height="400px">
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
@@ -166,7 +169,7 @@ require_once '../util/loginchk.php';
         $page_no = 1;
     }
 
-    $total_records_per_page = 8;
+    $total_records_per_page = 4;
 
     $offset = ($page_no - 1) * $total_records_per_page;
     $previous_page = $page_no - 1;
@@ -197,7 +200,7 @@ require_once '../util/loginchk.php';
 
         <div class="container px-4 px-lg-5 mt-5">
 
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
                 <?php
                 while ($row = $resultset->fetch_array()) {
                 ?>
@@ -250,17 +253,16 @@ require_once '../util/loginchk.php';
         </div>
 
     </section>
-</body>
+
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">박용호 &copy; 중고차 Website 2021</p>
     </div>
 </footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Core theme JS-->
-<script src="../js/scripts.js"></script>
+
 <script src='../js/login.js'></script>
 <script src='../js/head.js'></script>
 </body>

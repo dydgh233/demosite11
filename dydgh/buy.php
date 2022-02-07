@@ -120,14 +120,14 @@
 <body>
 
   <?php
-  require '../util/dbconfig_remind2.php';
+  require '../util/dbconfig_dydgh.php';
   require_once '../util/loginchk.php';
   $c_id = $_GET['c_id'];
   $m_id = $_GET['m_id'];
 
   ?>
   <h2>중고차 구매</h2>
-  <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
+  
   <div class="row">
     <div class="col-75">
       <div class="container">
@@ -185,7 +185,7 @@
 
           </div>
           <label>
-            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+            <input type="checkbox" checked="checked" name="sameadr"> 
           </label>
           <input type="submit" value="Continue to checkout" class="btn">
         </form>

@@ -1,5 +1,5 @@
 <?php
-require "../util/dbconfig_remind2.php";
+require "../util/dbconfig_dydgh.php";
 
 
 
@@ -15,7 +15,7 @@ require "../util/dbconfig_remind2.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>차량등록</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -25,23 +25,11 @@ require "../util/dbconfig_remind2.php";
 </head>
 
 <body class="d-flex flex-column">
-    <?php
-    
-
-    $sql = "SELECT o.id, m.m_name, c.c_name , c.c_price, c.uploadfile, regtime
-     from member m, car c ,tbl_order o
-     where o.m_id = m.m_id 
-     and o.c_id = c.c_id
-     and m.m_adress= o.o_adress
-     and o.o_cardnumber= m.m_cardnumber ";
-
-
-    ?>
     <main class="flex-shrink-0">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                <a class="navbar-brand" href="./purchasehistory.php">구매내역</a>
+                <a class="navbar-brand" href="./list.php">중고차사이트</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -63,63 +51,56 @@ require "../util/dbconfig_remind2.php";
             </div>
         </nav>
         <!-- Page Content-->
-        <?php
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-        ?>
-                <section class="py-5">
-                    <div class="container px-5">
-                        <h1 class="fw-bolder fs-5 mb-4"><?= $row['m_name'] ?></h1>
-                        <div class="card border-0 shadow rounded-3 overflow-hidden">
-                            <div class="card-body p-0">
-                                <div class="row gx-0">
-                                    <div class="col-lg-6 col-xl-5 py-lg-5">
-                                        <div class="p-4 p-md-5">
+        <section class="py-5">
+            <div class="container px-5">
+                <h1 class="fw-bolder fs-5 mb-4">차량등록</h1>
+                <div class="card border-0 shadow rounded-3 overflow-hidden">
+                    <div class="card-body p-0">
+                        <div class="row gx-0">
+                            <div class="col-lg-6 col-xl-5 py-lg-5">
+                                <div class="p-4 p-md-5">
 
-                                            <div class="h2 fw-bolder"><?= $row['c_name'] ?></div>
-                                            <tr>
-                                                <label for="email"><b>성함</b></label>
-                                                <td><?= $row['m_name'] ?></td><br>
-                                                
-                                                
-                                                <label for="email"><b>차종</b></label>
-                                                <td><?= $row['c_name'] ?></td><br>
-                                                
-                                                <label for="email"><b>가격</b></label>
-                                                <td><?= $row['c_price'] ?></td><br>
+                                    <div class="h2 fw-bolder">차량등록</div>
+                                    <table>
 
-                                                <label for="email"><b>구매시간</b></label>
-                                                <td><?= $row['regtime'] ?></td><br>
-                                                </tr>
-                                            
-                                            </form>
+
+
+                                        <form action="car_insert_process.php" method="POST" enctype="multipart/form-data">
+                                            <label>차종</label><input type="text" name="c_name" /><br>
+                                            <label>크기</label><input type="text" name="c_size" /><br>
+                                            <label>년도</label><input type="text" name="c_date" /><br>
+                                            <label>연료</label><input type="text" name="c_energy" /><br>
+                                            <label>가격</label><input type="text" name="c_price" /><br>
+                                            <label>회사</label><input type="text" name="c_model" /><br>
+                                            <input type="file" name="uploadfile" /><br>
+
+                                            <input type="submit" value="저장">
+                                        </form>
 
 
 
 
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-xl-7">
-                                        <div class="bg-featured-blog" style="background-image: url('../remind2/uploadfiles/<?= $row['uploadfile'] ?>')"></div>
-                                    </div>
 
+
+                                        </a>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-xl-7">
+                                <div class="bg-featured-blog" style="background-image: url('../dydgh/uploadfiles/<?= $row['uploadfile'] ?>')"></div>
+                            </div>
+
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
+
+
         <?php
-
-
-            }
-        } else {
-            echo "조건을 만족하는 데이터가 없습니다.";
-        }
         $result->close();
-        $conn->close();
+        $resultset->close();
         ?>
+
 
     </main>
     <!-- Footer-->
@@ -127,7 +108,7 @@ require "../util/dbconfig_remind2.php";
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto">
-                    <div class="small m-0 text-white">중고차사이트 &copy; Your Website 2021</div>
+                    <div class="small m-0 text-white">Copyright &copy; Your Website 2021</div>
                 </div>
                 <div class="col-auto">
                     <a class="link-light small" href="#!">Privacy</a>

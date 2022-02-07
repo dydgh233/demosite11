@@ -1,6 +1,6 @@
 
 <?php
-    require "../util/dbconfig_remind2.php";
+    require "../util/dbconfig_dydgh.php";
     ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>정보수정</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -20,6 +20,8 @@
     </head>
     <body class="d-flex flex-column">
 <?php
+    $m_id = $_GET['m_id'];
+    
     $c_id = $_GET['c_id'];
     $sql="SELECT * FROM car WHERE c_id=  ".$c_id;
     $result=$conn->query($sql);
@@ -62,13 +64,17 @@
                                        
                                         <div class="h2 fw-bolder"><?=$row['c_name']?></div>
                                         <form action="update_process.php" method="POST">
-    <label>번호</label><input type="hidden" name="c_id" value="<?=$row['c_id']?>"><br>
+    
+    
+    <input type="hidden" name="c_id" value="<?=$row['c_id']?>"><br>
     <label>차종</label><input type="text" name="c_name" value="<?=$row['c_name']?>"><br>
     <label>크기</label><input type="text" name="c_size" value="<?=$row['c_size']?>"><br>
     <label>년도</label><input type="text" name="c_date" value="<?=$row['c_date']?>"><br>
     <label>연료</label><input type="text" name="c_energy" value="<?=$row['c_energy']?>"><br>
     <label>가격</label><input type="text" name="c_price" value="<?=$row['c_price']?>"><br>
     <label>회사</label><input type="text" name="c_model" value="<?=$row['c_model']?>"><br>
+    <input type="hidden" name="m_id" value="<?=$m_id?>"><br>
+    
 
     <input type="submit" value="저장">
 
@@ -80,7 +86,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('../remind2/uploadfiles/<?=$row['uploadfile']?>')"></div></div>
+                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('../dydgh/uploadfiles/<?=$row['uploadfile']?>')"></div></div>
                                 
                             </div>
                         </div>

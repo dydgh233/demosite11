@@ -1,8 +1,8 @@
 <?php
     session_start();
-    unset($_SESSION["m_id"]);
+    unset($_SESSION["username"]);
     
-    setcookie("m_id", "");
+    setcookie("ID", "");
     setcookie("password", "");
     header("Location: list.php");
 ?>

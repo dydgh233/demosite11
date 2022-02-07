@@ -1,5 +1,5 @@
 <?php
-    require "../util/dbconfig_remind2.php";
+    require "../util/dbconfig_dydgh.php";
 
     
 
@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>상세정보</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -29,6 +29,7 @@
 $m_id = $_GET['m_id'];
 $sql = "SELECT * FROM member";
 $resultset = $conn->query($sql);
+$rows = $resultset->fetch_array();
 
 
 
@@ -51,16 +52,8 @@ $resultset = $conn->query($sql);
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href="./list.php">Home</a></li>
                          
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                             
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
+                           
+                                
                             </li>
                         </ul>
                     </div>
@@ -98,7 +91,7 @@ $resultset = $conn->query($sql);
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('../remind2/uploadfiles/<?=$row['uploadfile']?>')"></div></div>
+                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('../dydgh/uploadfiles/<?=$row['uploadfile']?>')"></div></div>
                                 
                             </div>
                         </div>
@@ -118,7 +111,7 @@ $resultset = $conn->query($sql);
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2021</div></div>
+                    <div class="col-auto"><div class="small m-0 text-white">dydgh &copy; Your Website 2021</div></div>
                     <div class="col-auto">
                         <a class="link-light small" href="#!">Privacy</a>
                         <span class="text-white mx-1">&middot;</span>

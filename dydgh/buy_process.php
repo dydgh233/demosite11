@@ -1,5 +1,5 @@
 <?php
- require_once '../util/dbconfig_remind2.php';
+ require_once '../util/dbconfig_dydgh.php';
 
 
 $m_id=$_POST['m_id'];
@@ -32,5 +32,5 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
-header('Location:purchasehistory.php');
+header("Location:purchasehistory.php?m_id=$m_id&c_id=$c_id");
 ?>

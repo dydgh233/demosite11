@@ -1,10 +1,8 @@
 
-
 <?php
-
 session_start();
 // db연결 준비
-require_once "../util/dbconfig_remind2.php";
+require_once "../util/dbconfig_dydgh.php";
 
 $ID = $_POST['ID'];
 $password = $_POST['password'];
@@ -16,17 +14,19 @@ $stmt = $conn->prepare("SELECT * FROM member WHERE ID = ? and password = ?");
 $stmt->bind_param("ss", $ID, $password);
 
 $stmt->execute();
+
 $result = $stmt->get_result();
 $row = mysqli_fetch_array($result);
 
 if (!empty($row['m_id'])) {
-  $_SESSION['m_id']=$row['m_id'];
+  $_SESSION['username']=$row['m_name'];
   $conn->close();
-  echo "<a href='../remind2/list.php'>로그인성공</a>";
+  echo "<a href='../dydgh/list.php'>로그인성공</a>";
+
 } else {
   echo outmsg(LOGIN_FAIL);
   $conn->close();
-  echo "<a href='../remind2/list.php'>로그인실패</a>";
+  echo "<a href='../dydgh/list.php'>로그인실패</a>";
 }
 
 
