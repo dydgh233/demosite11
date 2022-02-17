@@ -76,7 +76,7 @@ require_once '../util/loginchk.php';
 
                         <div id="id01" class="modal">
                             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                            <form class="modal-content" action="/dydgh/insert_process.php" method="POST">
+                            <form class="modal-content" action="insert_process.php" method="POST">
                                 <div class="container">
                                     <h1>회원가입</h1>
                                     <p>회원정보를 작성해주세요.</p>

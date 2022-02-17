@@ -6,6 +6,7 @@ $password = "dydgh";
 
 require_once "../util/utility.php";
 
+
 $conn = new mysqli($hostname, $username, $password);
 if(!$conn->connect_error) {
     echo "<script>alert('DBMS와 연결이 설정되었습니다.')</script>";
@@ -19,10 +20,6 @@ $conn->query($sql);
 
 $sql="CREATE DATABASE IF NOT EXISTS dydgh";
 $conn->query($sql);
-
-
-
-
 
 // Create User
 // 먼저, 기존에 존재하는 account가 있으면 삭제하고
@@ -42,6 +39,9 @@ $conn->query($sql);
 //명시적으로 현재 사용 DB 선언
 $sql = "use " .$dbname;
 $conn->query($sql);
+
+// 도메인용 DB연결
+require "../util/dbconfig_dydgh.php";
 
 // Create Table
 // 먼저, 존재하는 테이블이 있으면 삭제하고

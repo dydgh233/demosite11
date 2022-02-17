@@ -96,11 +96,7 @@ require "../util/dbconfig_dydgh.php";
         </section>
 
 
-        <?php
-        $result->close();
-        $resultset->close();
-        ?>
-
+       
 
     </main>
     <!-- Footer-->
