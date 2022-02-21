@@ -14,11 +14,11 @@ if(!$conn->connect_error) {
     echo "<script>alert('DBMS와 연결을 설정할 수 없습니다. \\n호스트명, 계정, 비밀번호를 확인해주세요.')</script>";
 }
 
-$dbname = "dydgh";
-$sql="DROP DATABASE IF EXISTS dydgh";
+$dbname = "root";
+$sql="DROP DATABASE IF EXISTS ".$dbname.";";
 $conn->query($sql);
 
-$sql="CREATE DATABASE IF NOT EXISTS dydgh";
+$sql="CREATE DATABASE IF NOT EXISTS `".$dbname."`";
 $conn->query($sql);
 
 // Create User
@@ -105,5 +105,5 @@ $sql = "CREATE TABLE IF NOT EXISTS `".$dbname."`.`tbl_order` (
 $conn->query($sql);
 
 
-
+echo "<a href='../dydgh/list.php'>메인으로.</a>";
 ?>
