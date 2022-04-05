@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
-$username = "dydgh";
-$password = "dydgh";
+$username = "root";
+$password = "";
 
 
 require_once "../util/utility.php";
@@ -14,11 +14,11 @@ if(!$conn->connect_error) {
     echo "<script>alert('DBMS와 연결을 설정할 수 없습니다. \\n호스트명, 계정, 비밀번호를 확인해주세요.')</script>";
 }
 
-$dbname = "root";
+$dbname = "dydgh";
 $sql="DROP DATABASE IF EXISTS ".$dbname.";";
 $conn->query($sql);
 
-$sql="CREATE DATABASE IF NOT EXISTS `".$dbname."`";
+$sql="CREATE DATABASE IF NOT EXISTS ".$dbname.";";
 $conn->query($sql);
 
 // Create User
@@ -33,15 +33,16 @@ $conn->query($sql);
 $sql = "GRANT USAGE ON *.* TO '".$account."'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0";
 $conn->query($sql);
 //생성된 계정에 특정 데이터베이스에 대한 권한 부여
-$sql = "GRANT ALL PRIVILEGES ON `".$dbname."` .* TO '".$account."'@'%'";
+// $sql = "GRANT ALL PRIVILEGES ON *.* TO '".$account."'@'%'";
+// $sql = "GRANT ALL ON *.* TO 'dydgh'@'localhost' IDENTIFIED BY 'dydgh' WITH GRANT OPTION";
+$sql = "GRANT ALL ON *.* TO '".$account."'@'localhost' IDENTIFIED BY '".$account."' WITH GRANT OPTION";
 $conn->query($sql);
 
 //명시적으로 현재 사용 DB 선언
 $sql = "use " .$dbname;
 $conn->query($sql);
 
-// 도메인용 DB연결
-require "../util/dbconfig_dydgh.php";
+
 
 // Create Table
 // 먼저, 존재하는 테이블이 있으면 삭제하고

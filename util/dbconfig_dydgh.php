@@ -3,7 +3,7 @@
 $hostname = 'localhost'; 
 $username = 'dydgh';  
 $password = 'dydgh';  
-$dbname = 'root';      
+$dbname = 'dydgh';      
 
 require_once "../util/utility.php"; 
 
